@@ -3,7 +3,9 @@ dotnet new webapp --auth Individual -uld -o WebApp1
 
 // *** Update DB
 dotnet tool install --global dotnet-ef
-dotnet ef database update
+dotnet ef migrations add InitialCreate
+dotnet ef migrations add InitialCreate --context ApplicationIdentityDbContext
+dotnet ef database update --context ApplicationIdentityDbContext
 
 // *** Scaffold Register, Login, LogOut, and RegisterConfirmation
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
