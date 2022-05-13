@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Identity_Sample.Areas.Identity.Helper;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Identity_Sample.Pages;
 
-[Authorize]
+[ClaimRequirementAttribute(claimType: "test", claimValue: "2")]
 public class PrivacyModel : PageModel
 {
     private readonly ILogger<PrivacyModel> _logger;
@@ -16,6 +15,8 @@ public class PrivacyModel : PageModel
 
     public void OnGet()
     {
+
+
     }
 }
 
