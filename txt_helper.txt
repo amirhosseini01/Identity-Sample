@@ -1,0 +1,10 @@
+// *** Create Proj
+dotnet new webapp --auth Individual -uld -o WebApp1
+
+// *** Update DB
+dotnet tool install --global dotnet-ef
+dotnet ef database update
+
+// *** Scaffold Register, Login, LogOut, and RegisterConfirmation
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.RegisterConfirmation"
