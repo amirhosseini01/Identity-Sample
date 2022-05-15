@@ -18,12 +18,10 @@ namespace Identity_Sample.Areas.Identity.Pages.Account
     public class RegisterConfirmationModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
-            _sender = sender;
         }
 
         /// <summary>
@@ -60,7 +58,7 @@ namespace Identity_Sample.Areas.Identity.Pages.Account
 
             Email = email;
             // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = true;
+            DisplayConfirmAccountLink = false;
             if (DisplayConfirmAccountLink)
             {
                 var userId = await _userManager.GetUserIdAsync(user);
