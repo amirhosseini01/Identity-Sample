@@ -5,13 +5,13 @@ namespace Identity_Sample.Areas.Identity.Helper;
 
 public static class EmailSender
 {
-    public static void SendFromGmail()
+    public static void SendFromGmail(SendEmailInput input)
     {
         var fromAddress = new MailAddress("from@gmail.com", "From Name");
-        var toAddress = new MailAddress("to@example.com", "To Name");
-        const string fromPassword = "fromPassword";
-        const string subject = "Subject";
-        const string body = "Body";
+        var toAddress = new MailAddress(input.ReciverEmail, input.ReciverName);
+        const string fromPassword = "*fromPass";
+        string subject = input.Subject;
+        string body = input.Body;
 
         var smtp = new SmtpClient
         {
@@ -27,7 +27,8 @@ public static class EmailSender
             using var message = new MailMessage(fromAddress, toAddress)
             {
                 Subject = subject,
-                Body = body
+                Body = body,
+                IsBodyHtml = true
             };
             smtp.Send(message);
         }
@@ -38,3 +39,4 @@ public static class EmailSender
         }
     }
 }
+public record SendEmailInput(string ReciverEmail, string ReciverName, string Subject, string Body);

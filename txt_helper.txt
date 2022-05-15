@@ -10,3 +10,4 @@ dotnet ef database update --context ApplicationIdentityDbContext
 // *** Scaffold Register, Login, LogOut, and RegisterConfirmation
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.RegisterConfirmation"
+dotnet aspnet-codegenerator identity --files "Account.ConfirmEmail"

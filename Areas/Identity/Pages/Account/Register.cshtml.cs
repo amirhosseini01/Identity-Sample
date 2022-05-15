@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using Identity_Sample.Areas.Identity.Helper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -128,8 +129,11 @@ namespace Identity_Sample.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    // await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    EmailSender.SendFromGmail(new SendEmailInput(
+                        ReciverEmail: Input.Email,
+                        ReciverName: "",
+                         Subject: "Confirm your email",
+                          Body: $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>."));
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
