@@ -1,3 +1,6 @@
 export PATH="$PATH:/home/amir/.dotnet/tools
 
 ~/.bash_profile
+
+
+dotnet aspnet-codegenerator identity --useDefaultUI
