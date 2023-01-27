@@ -1,4 +1,12 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using FullNet7Identity.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("FullNet7IdentityIdentityDbContextConnection") ?? throw new InvalidOperationException("Connection string 'FullNet7IdentityIdentityDbContextConnection' not found.");
+
+builder.Services.AddDbContext<FullNet7IdentityIdentityDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<FullNet7IdentityIdentityDbContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
