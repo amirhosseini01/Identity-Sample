@@ -1,0 +1,11 @@
+1. install required package 
+
+2. go to provider google, microsoft, ... and create account and get "secret tokens"
+
+
+
+
+3. Add a token and secrets
+dotnet user-secrets init
+dotnet user-secrets set "Authentication:Microsoft:ClientId" "<client-id>"
+dotnet user-secrets set "Authentication:Microsoft:ClientSecret" "<client-secret>"
