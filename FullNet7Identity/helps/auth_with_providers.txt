@@ -2,10 +2,14 @@
 
 2. go to provider google, microsoft, ... and create account and get "secret tokens"
 
+- in microsoft, you have to create application with type (Accounts in any organizational directory and Microsoft accounts)
 
 
 
 3. Add a token and secrets
-dotnet user-secrets init
-dotnet user-secrets set "Authentication:Microsoft:ClientId" "<client-id>"
-dotnet user-secrets set "Authentication:Microsoft:ClientSecret" "<client-secret>"
+    dotnet user-secrets init
+    dotnet user-secrets set "Authentication:Microsoft:ClientId" "<client-id>"
+    dotnet user-secrets set "Authentication:Microsoft:ClientSecret" "<client-secret>"
+    desc:
+        "<client-id>": located in overview of https://portal.azure.com/ (https://go.microsoft.com/fwlink/?linkid=2083908)
+        "<client-secret>": in lef side => secret menu item => create one and copy "secret value"

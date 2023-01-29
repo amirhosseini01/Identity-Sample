@@ -13,8 +13,6 @@ builder.Services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
     {
         microsoftOptions.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"]!;
         microsoftOptions.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"]!;
-        microsoftOptions.AuthorizationEndpoint = "https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a/oauth2/v2.0/authorize";
-    microsoftOptions.TokenEndpoint = "https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a/oauth2/v2.0/token";
     });
 
 // Add services to the container.
