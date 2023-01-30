@@ -1,0 +1,6 @@
+Kestrel (Windows, Linux, and macOS)
+
+1. create project:
+    dotnet new webapp --auth Windows
+2. add following package:
+    dotnet add package Microsoft.AspNetCore.Authentication.Negotiate
