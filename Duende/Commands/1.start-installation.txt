@@ -1,0 +1,22 @@
+Installation && Quick start
+
+1. install dotnet tool:
+    dotnet new --install Duende.IdentityServer.Templates
+
+2. create project structure (of course optional directory and names):
+    mkdir quickstart
+    cd quickstart
+    mkdir src
+    dotnet new sln -n Quickstart
+
+    cd src
+    dotnet new isempty -n IdentityServer
+
+    cd ..
+    dotnet sln add ./src/IdentityServer/IdentityServer.csproj
+
+.info:
+    Config.cs file contain "Scope of api" and related configs
+
+3. add "Client Config, Api Scope" to "Config.cs" file:
+    it is obvious from comment
