@@ -20,3 +20,7 @@ Installation && Quick start
 
 3. add "Client Config, Api Scope" to "Config.cs" file:
     it is obvious from comment
+
+4. by default keys stored in disk, to ignore them from source control add new .gitignore file in root
+    and add following:
+    src/IdentityServer/keys
