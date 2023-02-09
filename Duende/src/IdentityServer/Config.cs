@@ -10,7 +10,7 @@ public static class Config
             new IdentityResources.OpenId()
         };
 
-    // Define API Scope
+    // Define API Scopedotnet add ./Api/Api.csproj package Microsoft.AspNetCore.Authentication.JwtBearer
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
