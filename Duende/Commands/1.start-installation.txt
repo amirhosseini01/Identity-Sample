@@ -27,4 +27,4 @@ Installation && Quick start
 
 
 .info:
-    https://localhost:5001/.well-known/openid-configuration 
+    http://localhost:5001/.well-known/openid-configuration 
