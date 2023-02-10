@@ -1,4 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
+using Duende.IdentityServer;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
