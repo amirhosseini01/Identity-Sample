@@ -1,5 +1,6 @@
 ﻿using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
+using IdentityModel;
 
 namespace IdentityServer;
 
@@ -10,6 +11,15 @@ public static class Config
      {
         new IdentityResources.OpenId(),
         new IdentityResources.Profile(),
+        new IdentityResource()
+        {
+            Name = "verification",
+            UserClaims = new List<string> 
+            {
+                JwtClaimTypes.Email,
+                JwtClaimTypes.EmailVerified
+            }
+        }
      };
 
     // Define API Scopedotnet add ./Api/Api.csproj package Microsoft.AspNetCore.Authentication.JwtBearer
@@ -50,7 +60,8 @@ public static class Config
             AllowedScopes = new List<string>
             {
                 IdentityServerConstants.StandardScopes.OpenId,
-                IdentityServerConstants.StandardScopes.Profile
+                IdentityServerConstants.StandardScopes.Profile,
+                "verification"
             }
         }
      };
