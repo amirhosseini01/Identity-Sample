@@ -16,6 +16,7 @@ builder.Services.AddAuthentication(options =>
     .AddOpenIdConnect("oidc", options =>
     {
         options.Authority = "http://localhost:5001";
+        options.RequireHttpsMetadata = false;
 
         options.ClientId = "web";
         options.ClientSecret = "secret";
