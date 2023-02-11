@@ -16,6 +16,7 @@ builder.Services.AddAuthentication(options =>
     .AddOpenIdConnect("oidc", options =>
     {
         options.Authority = "http://localhost:5001";
+
         options.RequireHttpsMetadata = false;
 
         options.ClientId = "web";
@@ -25,12 +26,14 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Clear();
         options.Scope.Add("openid");
         options.Scope.Add("profile");
+
         options.Scope.Add("verification");
         options.ClaimActions.MapJsonKey("email_verified", "email_verified");
+
         options.GetClaimsFromUserInfoEndpoint = true;
 
-        options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-        options.SignOutScheme = IdentityServerConstants.SignoutScheme;
+        //options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+        //options.SignOutScheme = IdentityServerConstants.SignoutScheme;
         options.SaveTokens = true;
 
         options.TokenValidationParameters = new TokenValidationParameters
