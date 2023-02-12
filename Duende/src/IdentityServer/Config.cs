@@ -14,7 +14,7 @@ public static class Config
         new IdentityResource()
         {
             Name = "verification",
-            UserClaims = new List<string> 
+            UserClaims = new List<string>
             {
                 JwtClaimTypes.Email,
                 JwtClaimTypes.EmailVerified
@@ -57,11 +57,13 @@ public static class Config
             // where to redirect to after logout
             PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
 
+            AllowOfflineAccess = true,
+
             AllowedScopes = new List<string>
             {
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
-                "verification"
+                "api1"
             }
         }
      };
