@@ -1,0 +1,13 @@
+we have to remove the IdentityServer Project from "sln" and add new Asp.net project instead
+
+
+# after adding project, doing configurations and add reference to sln:
+
+dotnet sln remove ./src/IdentityServer/IdentityServer.csproj
+
+
+# to undo action :
+
+dotnet sln remove ./src/IdentityServerAspNetIdentity/IdentityServerAspNetIdentity.csproj
+
+dotnet sln add ./src/IdentityServer/IdentityServer.csproj
